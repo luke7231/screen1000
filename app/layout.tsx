@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './ui/globals.css';
+import './ui/reset.css';
 import localFont from 'next/font/local';
 
 export const metadata: Metadata = {
@@ -74,8 +75,16 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={sb.className}>{children}</body>
-            {/* <body className={inter.className}>{children}</body> */}
+            <body className={sb.className}>
+                <header className="py-6">
+                    <div className="max-w-[1200px] mx-auto text-lg">
+                        <h1>머리</h1>
+                    </div>
+                </header>
+                {children}
+            </body>
+
+            {/* <body className={pretendard.className}>{children}</body> */}
         </html>
     );
 }
