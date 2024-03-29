@@ -6,8 +6,8 @@ import Img3 from '../public/servicenow.jpg';
 export default function Home() {
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center justify-between ">
-            <h1 className="font-bold antialiased  text-[140px] text-center mt-14">스크린 1000</h1>
-            <h2 className="font-medium antialiased text-[24px] text-gray-500 mt-14">
+            <h1 className="font-bold antialiased  text-[140px] text-center mt-14">화면 1000</h1>
+            <h2 className="font-light antialiased text-[24px] text-gray-500 mt-14">
                 1000개의 스크린으로 영감을 얻으셔요~.
             </h2>
 
