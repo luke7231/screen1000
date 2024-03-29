@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './ui/globals.css';
 import './ui/reset.css';
 import localFont from 'next/font/local';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -76,9 +77,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={sb.className}>
-                <header className="py-6">
+                <header className="py-4 bg-gray-800">
                     <div className="max-w-[1200px] mx-auto text-lg">
-                        <h1>머리</h1>
+                        <Link href={'./'}>
+                            <h1 className="text-white">머리</h1>
+                        </Link>
                     </div>
                 </header>
                 {children}
