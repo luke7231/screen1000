@@ -3,8 +3,10 @@ import Img1 from '../public/snowflake.jpg';
 import Img2 from '../public/salesforce.jpg';
 import Img3 from '../public/servicenow.jpg';
 import Link from 'next/link';
+import { getPages } from './lib/main/query';
 
-export default function Home() {
+export default async function Home() {
+    const pages = await getPages();
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
             <h1 className="font-bold antialiased  text-[140px] text-center mt-40">화면 1000</h1>
@@ -18,17 +20,23 @@ export default function Home() {
                 <span>#Saas(해외)</span>
             </div>
             <div className="grid-cols-3 grid gap-12 mt-48">
-                <div className="w-[380px] h-[475px] overflow-hidden rounded-md shadow-lg hover-scale">
-                    <Link href={'./1'}>
-                        <Image src={Img1} alt="screen 1" width={380} className="object-cover" />
-                    </Link>
-                </div>
-                <div className="w-[380px] h-[475px] overflow-hidden rounded-md shadow-lg mt-12 hover-scale">
-                    <Image src={Img2} alt="screen 1" width={380} className="object-cover" />
-                </div>
-                <div className="w-[380px] h-[475px] overflow-hidden rounded-md shadow-lg hover-scale">
-                    <Image src={Img3} alt="screen 1" width={380} className="object-cover" />
-                </div>
+                {pages.map((page, index) => {
+                    return (
+                        <div
+                            key={page.id}
+                            className="w-[380px] h-[475px] overflow-hidden rounded-md shadow-lg hover-scale">
+                            <Link href={`/screen/${page.id}`}>
+                                <Image
+                                    src={page.thumbnail}
+                                    alt={`screen ${index}`}
+                                    width={380}
+                                    height={475}
+                                    className="object-cover"
+                                />
+                            </Link>
+                        </div>
+                    );
+                })}
             </div>
         </main>
     );
