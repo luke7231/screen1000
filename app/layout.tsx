@@ -79,14 +79,16 @@ export default function RootLayout({
             <body className={sb.className}>
                 <header className="py-4 bg-gray-800">
                     <div className="max-w-[1200px] mx-auto text-lg">
-                        <Link href={'./'}>
-                            <h1 className="text-white">머리</h1>
-                        </Link>
+                        <h1 className="text-white">
+                            <Link href={'./'} className="pl-6">
+                                머리
+                            </Link>
+                        </h1>
                     </div>
                 </header>
                 {children}
             </body>
-
+            {/* Pretendard test */}
             {/* <body className={pretendard.className}>{children}</body> */}
         </html>
     );
