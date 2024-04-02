@@ -19,6 +19,7 @@ export default async function Screen({ params: { id } }: Props) {
                         fill
                         alt="screen"
                         className="object-contain !relative"
+                        priority
                     />
                 </div>
                 <div className="order-1 shrink-0 md:basis-[340px] md:w-[340px] md:ml-[30px]">
