@@ -1,11 +1,26 @@
+import { getPage } from '@/app/lib/main/query';
 import Image from 'next/image';
 import Link from 'next/link';
+interface Props {
+    params: {
+        id: string;
+    };
+}
+export default async function Screen({ params: { id } }: Props) {
+    const data = await getPage(id);
+    const page = data[0];
 
-export default function Screen() {
     return (
-        <main>
-            <section className="max-w-[1200px] mx-auto flex min-h-screen mt-8">
-                <div className="mb-12"></div>
+        <main className="grow">
+            <section className="max-w-[1200px] mx-auto flex mt-8">
+                <div className="mb-12 w-[830px] h-full">
+                    <Image
+                        src={page.image}
+                        fill
+                        alt="screen"
+                        className="object-contain !relative"
+                    />
+                </div>
                 <div className="order-1 shrink-0 md:basis-[340px] md:w-[340px] md:ml-[30px]">
                     <div className="sticky top-6">
                         <Link href={'./'} className="font-light">
