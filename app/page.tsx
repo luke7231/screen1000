@@ -19,17 +19,18 @@ export default async function Home() {
             <div className="grid-cols-3 grid gap-12 mt-48">
                 {pages.map((page, index) => {
                     return (
-                        <div
-                            key={page.id}
-                            className="w-[380px] h-[475px] overflow-hidden rounded-md shadow-lg hover-scale">
+                        <div key={page.id} className="w-[380px] overflow-hidden  hover-scale">
                             <Link href={`/screen/${page.id}`}>
-                                <Image
-                                    src={page.thumbnail}
-                                    alt={`screen ${index}`}
-                                    width={380}
-                                    height={475}
-                                    className="object-cover"
-                                />
+                                <figure className="text-center">
+                                    <Image
+                                        src={page.thumbnail}
+                                        alt={`screen ${index}`}
+                                        width={380}
+                                        height={475}
+                                        className="object-cover rounded-md shadow-lg"
+                                    />
+                                    <figcaption className="mt-4">{page.name}</figcaption>
+                                </figure>
                             </Link>
                         </div>
                     );
