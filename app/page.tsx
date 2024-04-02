@@ -1,7 +1,4 @@
 import Image from 'next/image';
-import Img1 from '../public/snowflake.jpg';
-import Img2 from '../public/salesforce.jpg';
-import Img3 from '../public/servicenow.jpg';
 import Link from 'next/link';
 import { getPages } from './lib/main/query';
 
