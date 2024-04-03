@@ -80,7 +80,7 @@ export default function RootLayout({
                 <header className="py-4 bg-gray-800">
                     <div className="max-w-[1200px] mx-auto text-lg">
                         <h1 className="text-white">
-                            <Link href={'./'} className="pl-6">
+                            <Link href={'/'} className="pl-6">
                                 머리
                             </Link>
                         </h1>
