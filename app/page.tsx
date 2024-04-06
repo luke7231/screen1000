@@ -2,6 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getPages } from './lib/main/query';
 
+const tags = [
+    {
+        title: '사스',
+        key: 'saas',
+    },
+    {
+        title: '사스(해외)',
+        key: 'saas-global',
+    },
+];
+
 export default async function Home() {
     const pages = await getPages();
     return (
@@ -12,9 +23,9 @@ export default async function Home() {
             </h2>
 
             <div id="hashtag" className="pt-4">
-                <span>#랜딩페이지</span>
-                <span>#Saas</span>
-                <span>#Saas(해외)</span>
+                {tags.map((tag) => (
+                    <span key={tag.key}>#{tag.title} </span>
+                ))}
             </div>
             <div className="grid-cols-3 grid gap-12 mt-48">
                 {pages.map((page, index) => {
