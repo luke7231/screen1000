@@ -1,7 +1,12 @@
 import { sql } from '@vercel/postgres';
 
-export async function getPages() {
-    const data = await sql`SELECT * FROM PAGE `;
+export async function getPages(tag: string) {
+    let data;
+    if (tag) {
+        data = await sql`SELECT * FROM PAGE WHERE tag = ${tag}`;
+    } else {
+        data = await sql`SELECT * FROM PAGE`;
+    }
 
     return data.rows;
 }

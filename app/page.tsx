@@ -4,7 +4,14 @@ import { getPages } from './lib/main/query';
 import Filter from './ui/filter';
 import ImageGrid from './ui/image-grid';
 
-export default async function Home() {
+export default async function Home({
+    searchParams,
+}: {
+    searchParams?: {
+        t?: string;
+    };
+}) {
+    const tagKey = searchParams?.t || '';
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
             <h1 className="font-bold antialiased  text-[140px] text-center mt-40">화면 1000</h1>
@@ -13,8 +20,7 @@ export default async function Home() {
             </h2>
 
             <Filter />
-
-            <ImageGrid />
+            <ImageGrid tagKey={tagKey} />
         </main>
     );
 }
