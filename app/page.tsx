@@ -1,20 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPages } from './lib/main/query';
-
-const tags = [
-    {
-        title: '사스',
-        key: 'saas',
-    },
-    {
-        title: '사스(해외)',
-        key: 'saas-global',
-    },
-];
+import Filter from './ui/filter';
+import ImageGrid from './ui/image-grid';
 
 export default async function Home() {
-    const pages = await getPages();
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
             <h1 className="font-bold antialiased  text-[140px] text-center mt-40">화면 1000</h1>
@@ -22,31 +12,9 @@ export default async function Home() {
                 1000개의 스크린으로 영감을 얻으셔요~.
             </h2>
 
-            <div id="hashtag" className="pt-4">
-                {tags.map((tag) => (
-                    <span key={tag.key}>#{tag.title} </span>
-                ))}
-            </div>
-            <div className="grid-cols-3 grid gap-12 mt-48">
-                {pages.map((page, index) => {
-                    return (
-                        <div key={page.id} className="w-[380px] overflow-hidden  hover-scale">
-                            <Link href={`/screen/${page.id}`}>
-                                <figure className="text-center">
-                                    <Image
-                                        src={page.thumbnail}
-                                        alt={`screen ${index}`}
-                                        width={385}
-                                        height={475}
-                                        className="object-cover rounded-md shadow-lg"
-                                    />
-                                    <figcaption className="mt-4">{page.name}</figcaption>
-                                </figure>
-                            </Link>
-                        </div>
-                    );
-                })}
-            </div>
+            <Filter />
+
+            <ImageGrid />
         </main>
     );
 }
