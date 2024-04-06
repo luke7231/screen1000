@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { getPages } from './lib/main/query';
 import Filter from './ui/filter';
 import ImageGrid from './ui/image-grid';
 
