@@ -18,7 +18,7 @@ export default async function ImageGrid({ tagKey }: { tagKey: string }) {
                                     height={475}
                                     className="object-cover rounded-md shadow-lg"
                                 />
-                                <figcaption className="mt-4">{page.name}</figcaption>
+                                <figcaption className="mt-4 font-light">{page.name}</figcaption>
                             </figure>
                         </Link>
                     </div>
