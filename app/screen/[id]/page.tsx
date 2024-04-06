@@ -14,13 +14,8 @@ export default async function Screen({ params: { id } }: Props) {
         <main className="grow">
             <section className="max-w-[1200px] mx-auto flex mt-8">
                 <div className="mb-12 w-[830px] h-full">
-                    <Image
-                        src={page.image}
-                        fill
-                        alt="screen"
-                        className="object-contain !relative"
-                        priority
-                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={page.image} className="w-full" alt="screen" />
                 </div>
                 <div className="order-1 shrink-0 md:basis-[340px] md:w-[340px] md:ml-[30px]">
                     <div className="sticky top-6">
