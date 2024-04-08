@@ -5,16 +5,18 @@ import Image from 'next/image';
 export default async function ImageGrid({ tagKey }: { tagKey: string }) {
     const pages = await getPages(tagKey);
     return (
-        <div className="grid-cols-3 grid gap-12 mt-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 mt-48">
             {pages.map((page, index) => {
                 return (
-                    <div key={page.id} className="w-[385px] overflow-hidden  hover-scale">
+                    <div
+                        key={page.id}
+                        className=" pl-[15px] pr-[15px] overflow-hidden  hover-scale">
                         <Link href={`/screen/${page.id}`}>
                             <figure className="text-center">
                                 <Image
                                     src={page.thumbnail}
                                     alt={`screen ${index}`}
-                                    width={385}
+                                    width={380}
                                     height={475}
                                     className="object-cover rounded-md shadow-lg"
                                 />
