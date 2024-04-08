@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default async function ImageGrid({ tagKey }: { tagKey: string }) {
     const pages = await getPages(tagKey);
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 mt-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 mt-24 md:mt-36 lg:mt-48">
             {pages.map((page, index) => {
                 return (
                     <div
