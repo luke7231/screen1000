@@ -29,6 +29,8 @@ export default function Filter() {
             } else {
                 params.set('t', tag.key);
             }
+            // TODO: 필터(태그)를 바꾸어도 히스토리가 유지되도록 변경해야함.
+            params.delete('page');
         } else {
             params.delete('t');
         }
