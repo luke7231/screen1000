@@ -39,9 +39,12 @@ export default function Filter() {
     }
 
     return (
-        <div id="hashtag" className="pt-4">
+        <div id="hashtag" className="flex pt-5 gap-3">
             {tags.map((tag) => (
-                <span key={tag.key} onClick={() => handleClick(tag)}>
+                <span
+                    key={tag.key}
+                    onClick={() => handleClick(tag)}
+                    className="border border-solid border-gray-200 p-2 rounded-xl shadow-sm text-green-400">
                     #{tag.title}{' '}
                 </span>
             ))}
