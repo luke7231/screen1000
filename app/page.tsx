@@ -20,7 +20,7 @@ export default async function Home({
                 화면 1000
             </h1>
             <h2 className="font-light antialiased text-[16px] md:text-[18px] lg:text-[24px] text-gray-500 mt-8 md:mt-12 lg:mt-14">
-                1000개의 스크린으로 영감을 얻으셔요~.
+                1000개의 스크린으로 영감을 얻으세요
             </h2>
 
             <Filter />
