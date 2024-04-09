@@ -26,7 +26,7 @@ export default async function Home({
             <Filter />
             <ImageGrid tagKey={tagKey} currentPage={currentPage} />
 
-            <div className="mt-5 flex w-full justify-center">
+            <div className="mt-5 flex w-full justify-center mt-12 mb-12">
                 <Pagination totalPages={totalPages} />
             </div>
         </main>
