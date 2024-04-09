@@ -24,7 +24,6 @@ export default async function Screen({ params: { id } }: Props) {
                                 방문하기
                             </div>
                         </Link>
-                        <div>asd</div>
                     </div>
                 </div>
             </section>
