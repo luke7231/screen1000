@@ -16,7 +16,7 @@ export default async function Home({
     const totalPages = await getNumberOfPage(tagKey);
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
-            <div className="py-5 md:py-8 sticky top-0 bg-[#fafafa] w-full flex justify-center">
+            <div className="py-5 md:py-8 sticky top-0 bg-[#fafafa] w-full flex justify-center z-10">
                 <Filter />
             </div>
             <div className="mt-4 md:mt-8">
