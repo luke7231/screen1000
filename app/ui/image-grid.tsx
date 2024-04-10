@@ -11,7 +11,7 @@ export default async function ImageGrid({
 }) {
     const pages = await getPages(tagKey, currentPage);
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 mt-24 md:mt-36 lg:mt-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
             {pages.map((page, index) => {
                 return (
                     <div

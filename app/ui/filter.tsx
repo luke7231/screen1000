@@ -39,7 +39,7 @@ export default function Filter() {
     }
 
     return (
-        <div id="hashtag" className="flex pt-5 gap-3">
+        <div id="hashtag" className="flex  gap-3">
             {tags.map((tag) => (
                 <span
                     key={tag.key}

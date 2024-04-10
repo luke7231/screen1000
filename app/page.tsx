@@ -22,10 +22,12 @@ export default async function Home({
             <h2 className="font-light antialiased text-[16px] md:text-[18px] lg:text-[24px] text-gray-500 mt-8 md:mt-12 lg:mt-14">
                 1000개의 스크린으로 영감을 얻으세요
             </h2>
-
-            <Filter />
-            <ImageGrid tagKey={tagKey} currentPage={currentPage} />
-
+            <div className="pt-5">
+                <Filter />
+            </div>
+            <div className="mt-24 md:mt-36 lg:mt-48">
+                <ImageGrid tagKey={tagKey} currentPage={currentPage} />
+            </div>
             <div className="flex w-full justify-center mt-12 mb-12">
                 <Button text="더보기" href="./screens" />
             </div>
