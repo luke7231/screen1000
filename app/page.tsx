@@ -1,6 +1,7 @@
 import { getNumberOfPage } from './lib/main/query';
 import Button from './ui/button';
 import Filter from './ui/filter';
+import GoToScreensButton from './ui/go-to-screens-button';
 import ImageGrid from './ui/image-grid';
 import Pagination from './ui/pagination';
 
@@ -14,6 +15,7 @@ export default async function Home({
 }) {
     const tagKey = searchParams?.t || '';
     const currentPage = Number(searchParams?.page) || 1;
+    const totalPages = await getNumberOfPage(tagKey);
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
             <h1 className="font-bold antialiased  text-[60px] md:text-[90px] lg:text-[120px]  text-center mt-40">
@@ -29,7 +31,7 @@ export default async function Home({
                 <ImageGrid tagKey={tagKey} currentPage={currentPage} />
             </div>
             <div className="flex w-full justify-center mt-12 mb-12">
-                <Button text="더보기" href="./screens" />
+                <GoToScreensButton tagKey={tagKey} totalPages={totalPages} />
             </div>
         </main>
     );
