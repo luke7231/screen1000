@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 
-const ITEMS_PER_PAGE = 15;
+const ITEMS_PER_PAGE = 12;
 export async function getPages(tag: string, currentPage: number) {
     let data;
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
