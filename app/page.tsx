@@ -1,4 +1,5 @@
 import { getNumberOfPage } from './lib/main/query';
+import Button from './ui/button';
 import Filter from './ui/filter';
 import ImageGrid from './ui/image-grid';
 import Pagination from './ui/pagination';
@@ -27,7 +28,7 @@ export default async function Home({
             <ImageGrid tagKey={tagKey} currentPage={currentPage} />
 
             <div className="flex w-full justify-center mt-12 mb-12">
-                <Pagination totalPages={totalPages} />
+                <Button text="더보기" href="./screens" />
             </div>
         </main>
     );
