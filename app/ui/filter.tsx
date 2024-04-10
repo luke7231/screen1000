@@ -2,6 +2,7 @@
 
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { Tag } from '../lib/main/definition';
+import clsx from 'clsx';
 
 const tags: Tag[] = [
     {
@@ -39,15 +40,21 @@ export default function Filter() {
     }
 
     return (
-        <div id="hashtag" className="flex  gap-3">
-            {tags.map((tag) => (
-                <span
-                    key={tag.key}
-                    onClick={() => handleClick(tag)}
-                    className="border border-solid border-gray-200 p-2 rounded-xl shadow-sm text-green-400">
-                    #{tag.title}{' '}
-                </span>
-            ))}
+        <div id="hashtag" className="flex gap-3">
+            {tags.map((tag) => {
+                const currentSelectedTag = new URLSearchParams(searchParams).get('t');
+                return (
+                    <span
+                        key={tag.key}
+                        onClick={() => handleClick(tag)}
+                        className={clsx(
+                            'border border-solid border-gray-200 p-2 rounded-xl shadow-sm text-green-400',
+                            { 'bg-gray-800': currentSelectedTag === tag.key },
+                        )}>
+                        #{tag.title}{' '}
+                    </span>
+                );
+            })}
         </div>
     );
 }
