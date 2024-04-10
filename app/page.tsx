@@ -14,7 +14,6 @@ export default async function Home({
 }) {
     const tagKey = searchParams?.t || '';
     const currentPage = Number(searchParams?.page) || 1;
-    const totalPages = await getNumberOfPage(tagKey);
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
             <h1 className="font-bold antialiased  text-[60px] md:text-[90px] lg:text-[120px]  text-center mt-40">
