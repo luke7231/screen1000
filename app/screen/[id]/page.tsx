@@ -1,4 +1,5 @@
 import { getPage } from '@/app/lib/main/query';
+import Button from '@/app/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 interface Props {
@@ -17,15 +18,7 @@ export default async function Screen({ params: { id } }: Props) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={page.image} className="w-full shadow-md" alt="screen" />
                 </div>
-                <div className="order-1 shrink-0 md:basis-[340px] md:w-[340px] md:ml-[30px]">
-                    <div className="sticky top-6 pl-6 pr-6 md:pl-0">
-                        <Link href={'./'} className="font-light">
-                            <div className="py-3 mb-4 w-full flex justify-center items-center bg-gray-800 text-white rounded-lg">
-                                방문하기
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+                <Button text="방문하기" href="./" />
             </section>
         </main>
     );
