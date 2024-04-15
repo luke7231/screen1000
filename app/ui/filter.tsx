@@ -42,7 +42,7 @@ export default function Filter() {
     return (
         <div id="hashtag" className="flex gap-3">
             {tags.map((tag) => {
-                const currentSelectedTag = new URLSearchParams(searchParams).get('t');
+                const currentSelectedTag = new URLSearchParams(searchParams).get('t') || 'saas';
                 return (
                     <span
                         key={tag.key}
