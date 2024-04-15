@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'habitstorage.s3.ap-northeast-2.amazonaws.com',
+                hostname: 'screen1000.s3.ap-northeast-2.amazonaws.com',
                 port: '',
                 pathname: '/**',
             },
