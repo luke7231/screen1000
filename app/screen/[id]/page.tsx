@@ -1,4 +1,4 @@
-import { getPage } from '@/app/lib/main/query';
+import { getPage, getSameDomainPages } from '@/app/lib/main/query';
 import Button from '@/app/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +10,8 @@ interface Props {
 export default async function Screen({ params: { id } }: Props) {
     const data = await getPage(id);
     const page = data[0];
+    const sameDomainPage = await getSameDomainPages(id);
+    console.log(sameDomainPage);
 
     return (
         <main className="grow">
@@ -19,6 +21,14 @@ export default async function Screen({ params: { id } }: Props) {
                     <img src={page.image} className="w-full shadow-md" alt="screen" />
                 </div>
                 <Button text="방문하기" href="./" />
+                {/* ✅ TODO: ui 디자인 추가할 것 */}
+                {sameDomainPage.map((page) => {
+                    return (
+                        <div key={page.id} className="h-[380px]">
+                            <img src={page.image} className="w-full" />
+                        </div>
+                    );
+                })}
             </section>
         </main>
     );

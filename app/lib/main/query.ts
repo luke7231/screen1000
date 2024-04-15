@@ -37,3 +37,18 @@ export async function getNumberOfPage(tag: string) {
         throw new Error('Failed to fetch total number of invoices.');
     }
 }
+
+export async function getSameDomainPages(id: string) {
+    const currentPage = await sql`select * from page WHERE id = ${id}`;
+    // ✅ TODO: 타이핑 할 것
+    const currentPageName = currentPage.rows[0].name;
+
+    const data = await sql`
+        SELECT * 
+        FROM PAGE 
+        WHERE name = ${currentPageName} 
+        AND id != ${id};
+    `;
+
+    return data.rows;
+}
