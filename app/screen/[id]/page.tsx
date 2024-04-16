@@ -25,7 +25,8 @@ export default async function Screen({ params: { id } }: Props) {
                 {sameDomainPage.map((page) => {
                     return (
                         <div key={page.id} className="h-[380px]">
-                            <img src={page.image} className="w-full" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={page.image} alt="same domain image" className="w-full" />
                         </div>
                     );
                 })}
