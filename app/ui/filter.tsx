@@ -13,6 +13,30 @@ const tags: Tag[] = [
         title: '사스(해외)',
         key: 'saas-global',
     },
+    {
+        title: '로그인',
+        key: 'sign-in',
+    },
+    {
+        title: '회원가입',
+        key: 'sign-up',
+    },
+    {
+        title: 'Pricing',
+        key: 'pricing',
+    },
+    {
+        title: 'Blog',
+        key: 'blog',
+    },
+    {
+        title: 'FAQ',
+        key: 'faq',
+    },
+    {
+        title: 'Contact',
+        key: 'contact',
+    },
 ];
 
 export default function Filter() {
@@ -48,10 +72,10 @@ export default function Filter() {
                         key={tag.key}
                         onClick={() => handleClick(tag)}
                         className={clsx(
-                            'border border-solid border-gray-200 p-2 rounded-xl shadow-sm text-green-400',
+                            'border border-solid border-gray-200 p-2 rounded-xl shadow-sm text-green-400 px-4',
                             { 'bg-gray-800': currentSelectedTag === tag.key },
                         )}>
-                        #{tag.title}{' '}
+                        {tag.title}{' '}
                     </span>
                 );
             })}
