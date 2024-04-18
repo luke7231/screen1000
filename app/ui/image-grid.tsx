@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { getPages } from '../lib/main/query';
+import { getPage, getPageBySearch, getPages } from '../lib/main/query';
 import Image from 'next/image';
 
 export default async function ImageGrid({
-    tagKey,
-    currentPage,
+    query,
+    tagKey = '',
+    currentPage = 0,
 }: {
-    tagKey: string;
-    currentPage: number;
+    query?: string;
+    tagKey?: string;
+    currentPage?: number;
 }) {
-    const pages = await getPages(tagKey, currentPage);
+    const pages = query ? await getPageBySearch(query) : await getPages(tagKey, currentPage);
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
             {pages.map((page, index) => {

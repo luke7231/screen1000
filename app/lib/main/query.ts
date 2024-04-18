@@ -20,7 +20,7 @@ export async function getPage(id: string) {
     return data.rows;
 }
 
-export async function getNumberOfPage(tag: string) {
+export async function getNumberOfPage(tag?: string) {
     try {
         const count = tag
             ? await sql`SELECT COUNT(*)
@@ -51,4 +51,13 @@ export async function getSameDomainPages(id: string) {
     `;
 
     return data.rows;
+}
+export async function getPageBySearch(query: string) {
+    const decodedQuery = decodeURIComponent(query);
+    const pages = await sql`
+        SELECT *
+        FROM page
+        WHERE page.name::text ILIKE ${`%${decodedQuery}%`};
+    `;
+    return pages.rows;
 }

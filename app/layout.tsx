@@ -3,6 +3,7 @@ import './ui/globals.css';
 import './ui/reset.css';
 import localFont from 'next/font/local';
 import Link from 'next/link';
+import Search from './ui/search';
 
 export const metadata: Metadata = {
     title: '화면 1000',
@@ -84,6 +85,7 @@ export default function RootLayout({
                                 머리
                             </Link>
                         </h1>
+                        <Search placeholder="search" />
                     </div>
                 </header>
                 {children}
