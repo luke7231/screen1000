@@ -10,31 +10,6 @@ export const metadata: Metadata = {
     description: '1000개의 스크린으로 영감을 얻으세요.',
 };
 
-// const pretendard = localFont({
-//   src: [
-//     {
-//       path: "./ui/fonts/Pretendard-Light.woff2",
-//       weight: "300",
-//       style: "normal",
-//     },
-//     {
-//       path: "./ui/fonts/Pretendard-Regular.woff2",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     {
-//       path: "./ui/fonts/Pretendard-Bold.woff2",
-//       weight: "700",
-//       style: "normal",
-//     },
-//     {
-//       path: "./ui/fonts/Pretendard-ExtraBold.woff2",
-//       weight: "800",
-//       style: "normal",
-//     },
-//   ],
-// });
-
 const sb = localFont({
     src: [
         {
