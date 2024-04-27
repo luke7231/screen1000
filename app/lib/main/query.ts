@@ -8,8 +8,8 @@ export async function getPages(tag: string, currentPage: number) {
         data =
             await sql`SELECT * FROM PAGE WHERE tag = ${tag} LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
     } else {
-        data =
-            await sql`SELECT * FROM PAGE WHERE tag = 'saas' LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
+        data = await sql`SELECT * FROM PAGE LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
+        // await sql`SELECT * FROM PAGE WHERE tag = 'saas' LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
     }
 
     return data.rows;
