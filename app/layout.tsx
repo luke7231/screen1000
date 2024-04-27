@@ -4,46 +4,12 @@ import './ui/reset.css';
 import localFont from 'next/font/local';
 import Link from 'next/link';
 import Search from './ui/search';
-
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     title: '화면 1000',
     description: '1000개의 스크린으로 영감을 얻으세요.',
 };
-
-const sb = localFont({
-    src: [
-        {
-            path: './ui/fonts/SB-light.otf',
-            weight: '300',
-            style: 'normal',
-        },
-        {
-            path: './ui/fonts/SB-medium.otf',
-            weight: '500',
-            style: 'normal',
-        },
-        {
-            path: './ui/fonts/SB-bold.otf',
-            weight: '700',
-            style: 'normal',
-        },
-        {
-            path: './ui/fonts/SB-light-window.ttf',
-            weight: '300',
-            style: 'normal',
-        },
-        {
-            path: './ui/fonts/SB-medium-window.ttf',
-            weight: '500',
-            style: 'normal',
-        },
-        {
-            path: './ui/fonts/SB-bold-window.ttf',
-            weight: '700',
-            style: 'normal',
-        },
-    ],
-});
 
 export default function RootLayout({
     children,
@@ -52,15 +18,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={sb.className}>
-                <header className="py-4 bg-gray-800">
+            <body className={inter.className}>
+                <header className="py-4 bg-gray-100">
                     <div className="max-w-[1200px] mx-auto text-lg">
-                        <h1 className="text-white">
-                            <Link href={'/'} className="pl-6">
-                                머리
+                        <h1>
+                            <Link href={'/'} className="pl-6 ">
+                                Screen Palette
                             </Link>
                         </h1>
-                        <Search placeholder="search" />
                     </div>
                 </header>
                 {children}
