@@ -24,7 +24,7 @@ export default async function ImageGrid({
                                 <Image
                                     src={page.thumbnail}
                                     alt={`screen ${index}`}
-                                    width={380}
+                                    width={385}
                                     height={475}
                                     className="object-cover rounded-md shadow-lg"
                                 />
