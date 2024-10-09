@@ -43,7 +43,9 @@ export default async function Home({
             {detectedText && (
                 <div className="mt-6 p-4 bg-gray-100 rounded-lg w-full md:w-1/2">
                     <h3 className="font-semibold">Detected Text:</h3>
-                    <p>{detectedText}</p>
+                    <p className="whitespace-pre-line" style={{ lineHeight: '2' }}>
+                        {detectedText}
+                    </p>
                 </div>
             )}
         </main>
