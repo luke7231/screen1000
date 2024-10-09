@@ -5,7 +5,11 @@ const ITEMS_PER_PAGE = 12;
 export async function getTextFromImage(link: string) {
     let data;
     const client = new ImageAnnotatorClient({
-        keyFilename: 'qqrbbingbbong-49eb85901287.json',
+        credentials: {
+            client_email: process.env.NEXT_PUBLIC_CLIENT_EMAIL,
+            projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+            private_key: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+        },
     });
     async function detectText() {
         const [result] = await client.textDetection(link);
