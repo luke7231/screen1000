@@ -1,9 +1,4 @@
-import { getNumberOfPage } from './lib/main/query';
-import Button from './ui/button';
-import Filter from './ui/filter';
-import GoToScreensButton from './ui/go-to-screens-button';
-import ImageGrid from './ui/image-grid';
-import Pagination from './ui/pagination';
+import { getTextFromImage } from './lib/main/query';
 
 export default async function Home({
     searchParams,
@@ -11,29 +6,46 @@ export default async function Home({
     searchParams?: {
         t?: string;
         page?: string;
+        link?: string;
     };
 }) {
-    const tagKey = searchParams?.t || '';
-    const currentPage = Number(searchParams?.page) || 1;
-    const totalPages = await getNumberOfPage(tagKey);
+    const imageLink = searchParams?.link || '';
+    let detectedText: string | null | undefined = null;
+
+    if (imageLink) {
+        try {
+            detectedText = await getTextFromImage(imageLink);
+        } catch (error) {
+            console.error('Error detecting text from image:', error);
+            detectedText = 'Error detecting text.';
+        }
+    }
+
     return (
         <main className="max-w-[1200px] mx-auto flex min-h-screen flex-col items-center">
-            <h1 className="font-bold antialiased  text-[60px] md:text-[90px] lg:text-[100px]  text-center mt-14">
-                Screen Palette
-            </h1>
             <h2 className="font-light antialiased text-[16px] md:text-[18px] lg:text-[24px] text-gray-500 mt-4 md:mt-6 lg:mt-8">
                 Look around the screen by color
             </h2>
-            <div className="mt-28">
-                <Filter />
-                <div className="text-center mt-4">click me!</div>
-            </div>
-            <div className="mt-24 md:mt-36 lg:mt-48">
-                <ImageGrid tagKey={tagKey} currentPage={currentPage} />
-            </div>
-            <div className="flex w-full justify-center mt-12 mb-12">
-                <GoToScreensButton tagKey={tagKey} totalPages={totalPages} />
-            </div>
+
+            <form method="get" className="mt-6 w-full md:w-1/2">
+                <input
+                    type="text"
+                    name="link"
+                    defaultValue={imageLink}
+                    placeholder="Enter image link"
+                    className="border p-2 rounded-lg w-full"
+                />
+                <button type="submit" className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">
+                    Extract Text
+                </button>
+            </form>
+
+            {detectedText && (
+                <div className="mt-6 p-4 bg-gray-100 rounded-lg w-full md:w-1/2">
+                    <h3 className="font-semibold">Detected Text:</h3>
+                    <p>{detectedText}</p>
+                </div>
+            )}
         </main>
     );
 }

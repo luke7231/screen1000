@@ -1,18 +1,19 @@
 import { sql } from '@vercel/postgres';
+import { ImageAnnotatorClient } from '@google-cloud/vision';
 
 const ITEMS_PER_PAGE = 12;
-export async function getPages(tag: string, currentPage: number) {
+export async function getTextFromImage(link: string) {
     let data;
-    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-    if (tag) {
-        data =
-            await sql`SELECT * FROM PAGE WHERE tag = ${tag} LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
-    } else {
-        data = await sql`SELECT * FROM PAGE LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
-        // await sql`SELECT * FROM PAGE WHERE tag = 'saas' LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
+    const client = new ImageAnnotatorClient({
+        keyFilename: 'qqrbbingbbong-49eb85901287.json',
+    });
+    async function detectText() {
+        const [result] = await client.textDetection(link);
+        const annotations = result.textAnnotations;
+        return annotations?.[0]?.description;
     }
 
-    return data.rows;
+    return await detectText();
 }
 export async function getPage(id: string) {
     const data = await sql`SELECT * FROM PAGE WHERE id = ${id}`;

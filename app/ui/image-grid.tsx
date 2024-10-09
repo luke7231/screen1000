@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getPage, getPageBySearch, getPages } from '../lib/main/query';
+import { getPage, getPageBySearch } from '../lib/main/query';
 import Image from 'next/image';
 
 export default async function ImageGrid({
@@ -11,10 +11,10 @@ export default async function ImageGrid({
     tagKey?: string;
     currentPage?: number;
 }) {
-    const pages = query ? await getPageBySearch(query) : await getPages(tagKey, currentPage);
+    // const pages = query ? await getPageBySearch(query) : await getPages(tagKey, currentPage);
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
-            {pages.map((page, index) => {
+            {/* {pages.map((page, index) => {
                 return (
                     <div
                         key={page.id}
@@ -33,7 +33,7 @@ export default async function ImageGrid({
                         </Link>
                     </div>
                 );
-            })}
+            })} */}
         </div>
     );
 }
